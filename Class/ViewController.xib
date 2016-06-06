@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlL-QU-KNY">
+                    <rect key="frame" x="100" y="224" width="120" height="120"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="B9a-wB-QoM"/>
+                        <constraint firstAttribute="width" constant="120" id="doW-mp-g6l"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="+"/>
+                    <connections>
+                        <action selector="photoAction:" destination="-1" eventType="touchUpInside" id="TKx-WF-SbW"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一行代码搞定单张照片选择+裁剪" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eym-VS-jcM">
+                    <rect key="frame" x="0.0" y="184" width="320" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="cPn-7P-e7u"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eym-VS-jcM" secondAttribute="trailing" id="1Tb-3u-iic"/>
+                <constraint firstItem="BlL-QU-KNY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="DCv-1O-aim"/>
+                <constraint firstItem="eym-VS-jcM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OPe-w0-Lpw"/>
+                <constraint firstItem="BlL-QU-KNY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iQt-3W-hqR"/>
+                <constraint firstItem="BlL-QU-KNY" firstAttribute="top" secondItem="eym-VS-jcM" secondAttribute="bottom" id="rKm-UW-Pvq"/>
+                <constraint firstItem="eym-VS-jcM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="sLT-7E-ycF"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="sLT-7E-ycF"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="122" y="377"/>
+        </view>
+    </objects>
+</document>
