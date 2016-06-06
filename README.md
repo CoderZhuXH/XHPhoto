@@ -16,7 +16,8 @@
 
 ```
 ## Tips
-*  将Info.plist   `Localization native development region`  值 设置 `china`  相册及相机界面即显示为中文
+*  将Info.plist   `Localization native development region`  值 设置 `china`  相册及相机界面即显示为中文<br>
+
 ##  安装
 ### 手动添加:<br>
 *   1.将 XHPhoto 文件夹添加到工程目录中<br>
