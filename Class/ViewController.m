@@ -4,7 +4,7 @@
 //
 //  Created by xiaohui on 16/6/6.
 //  Copyright © 2016年 qiantou. All rights reserved.
-//
+//  代码地址:https://github.com/CoderZhuXH/XHPhoto
 
 #import "ViewController.h"
 #import "UIViewController+XHPhoto.h"

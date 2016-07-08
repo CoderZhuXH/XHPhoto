@@ -1,24 +1,11 @@
 //
 //  UIViewController+XHPhoto.m
 
-//  Copyright (c) 2016 XHPhoto (https://github.com/CoderZhuXH/XHPhoto)
-
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  XHPhotoExample
 //
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  Created by xiaohui on 16/6/6.
+//  Copyright © 2016年 qiantou. All rights reserved.
+//  代码地址:https://github.com/CoderZhuXH/XHPhoto
 
 #import "UIViewController+XHPhoto.h"
 #import "objc/runtime.h"
@@ -69,23 +56,13 @@ static  char blockKey;
         //权限
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
         if (author == ALAuthorizationStatusRestricted || author ==ALAuthorizationStatusDenied) {
-            CGFloat kSystemMainVersion = [UIDevice currentDevice].systemVersion.floatValue;
-            NSString *title = nil;
             NSString *photoType = buttonIndex==0?@"相机":@"相册";
-            NSString *msg = [NSString stringWithFormat:@"还没有开启%@权限,请在系统设置中开启",photoType];
-            NSString *cancelTitle = @"暂不";
-            NSString *otherButtonTitles = @"去设置";
-            
-            if (kSystemMainVersion < 8.0) {
-                title = [NSString stringWithFormat:@"%@权限未开启",photoType];
-                msg = [NSString stringWithFormat:@"请在系统设置中开启%@服务\n(设置>隐私>%@>开启)",photoType,photoType];
-                cancelTitle = @"知道了";
-                otherButtonTitles = nil;
-            }
-            
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:otherButtonTitles, nil];
-            alertView.tag = 2598;
+            NSString * title = [NSString stringWithFormat:@"%@权限未开启",photoType];
+            NSString * msg = [NSString stringWithFormat:@"请在系统设置中开启该应用%@服务\n(设置->隐私->%@->开启)",photoType,photoType];
+            NSString * cancelTitle = @"知道了";
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:nil, nil];
             [alertView show];
+            debugLog(@"%@权限未开启",photoType);
             return;
         }
         //跳转到相机/相册页面
@@ -117,22 +94,6 @@ static  char blockKey;
         }
     }
 }
-#pragma mark - <UIAlertDelegate>
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(alertView.tag==2598)
-    {
-        if (buttonIndex == 1) {
-            CGFloat kSystemMainVersion = [UIDevice currentDevice].systemVersion.floatValue;
-            if (kSystemMainVersion >= 8.0) {
-                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                if ([[UIApplication sharedApplication] canOpenURL:url]) {
-                    [[UIApplication sharedApplication] openURL:url];
-                }
-                debugLog(@"1.iOS8以后支持跳转到设置,设置完成后,系统会自启应用,刷新应用权限\n 2.由于系统自启应用,连接Xcode调试会crash,断开与Xcode连接,进行操作即可");
-            }
-        }
-    }
-}
 #pragma mark - image picker delegte
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -146,7 +107,7 @@ static  char blockKey;
         image = [info objectForKey:UIImagePickerControllerEditedImage];
         
     } else {
-
+        
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
     
@@ -156,14 +117,14 @@ static  char blockKey;
     }
 }
 /*
-#pragma mark - UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if ([navigationController isKindOfClass:[UIImagePickerController class]] &&
-        ((UIImagePickerController *)navigationController).sourceType ==     UIImagePickerControllerSourceTypePhotoLibrary) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-       
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    }
-}
-*/
+ #pragma mark - UINavigationControllerDelegate
+ - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+ if ([navigationController isKindOfClass:[UIImagePickerController class]] &&
+ ((UIImagePickerController *)navigationController).sourceType ==     UIImagePickerControllerSourceTypePhotoLibrary) {
+ [[UIApplication sharedApplication] setStatusBarHidden:NO];
+ 
+ [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+ }
+ }
+ */
 @end

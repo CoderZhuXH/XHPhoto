@@ -1,6 +1,8 @@
 ﻿# XHPhoto
 * 一行代码搞定照片选择,支持相册/相机及设置是否裁剪
 
+### 技术交流群(群号:537476189).
+
 ## 效果
 ![image](http://c.hiphotos.baidu.com/image/pic/item/4afbfbedab64034fa246e436a7c379310a551d72.jpg)
 ## 使用方法
@@ -27,6 +29,9 @@
 *   1.在 Podfile 中添加 pod 'XHPhoto'<br>
 *   2.执行 pod install 或 pod update<br>
 *   3.导入 UIViewController+XHPhoto.h.h
+
+### Tips
+*	如果你发现你执行pod install后,导入的不是最新版本,请删除Podfile.lock文件,在执行一次 pod install
 
 ##  系统要求
 *   该项目最低支持 iOS 7.0 和 Xcode 7.0
