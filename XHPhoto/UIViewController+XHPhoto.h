@@ -7,6 +7,16 @@
 //  Copyright © 2016年 qiantou. All rights reserved.
 //  代码地址:https://github.com/CoderZhuXH/XHPhoto
 
+
+/*
+ 
+ 注意:请在info.plist
+ 添加
+ Privacy - Photo Library Usage Description
+ Privacy - Camera Usage Description
+ 
+ */
+
 #import <UIKit/UIKit.h>
 
 typedef void(^photoBlock)(UIImage *photo);
