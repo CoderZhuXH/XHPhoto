@@ -17,6 +17,12 @@
     }];
 
 ```
+## 注意
+
+*	请在info.plist中添加
+*	Privacy - Photo Library Usage Description
+*	Privacy - Camera Usage Description
+
 ## Tips
 *  将Info.plist   `Localization native development region`  值 设置 `china`  相册及相机界面即显示为中文<br>
 
