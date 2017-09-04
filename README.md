@@ -6,9 +6,9 @@
 ## 效果
 ![image](http://c.hiphotos.baidu.com/image/pic/item/4afbfbedab64034fa246e436a7c379310a551d72.jpg)
 ## 使用方法
-####导入UIViewController+XHPhoto.h头文件,在控制器中调用
+#### 导入UIViewController+XHPhoto.h头文件,在控制器中调用
 
-####1.使用系统UIActionSheet来选择打开相机、相册
+#### 1.使用系统UIActionSheet来选择打开相机、相册
 
 ```objc
 
@@ -21,7 +21,7 @@
 
 ```
 
-####2.直接打开相机
+#### 2.直接打开相机
 
 ```objc
     //edit:照片需要裁剪:传YES,不需要裁剪传NO(默认NO)
@@ -33,7 +33,7 @@
 
 ```
 
-####2.直接打开相册
+#### 3.直接打开相册
 
 ```objc
 
