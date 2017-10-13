@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "XHPhoto"
-  s.version      = "1.2.0"
+  s.version      = "1.3.0"
   s.summary      = "一行代码搞定照片选择,支持相册/相机及是否裁剪"
   s.homepage     = "https://github.com/CoderZhuXH/XHPhoto"
   s.license      = { :type => "MIT", :file => "LICENSE" }

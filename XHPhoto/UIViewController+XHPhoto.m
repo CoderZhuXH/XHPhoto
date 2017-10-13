@@ -17,6 +17,9 @@
 #define debugLog(...)
 #endif
 
+#define XH_IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define XH_IS_PAD (UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPad)
+
 static  BOOL canEdit = NO;
 static  BOOL tempCanEdit = NO;
 static  char blockKey;
@@ -26,6 +29,7 @@ static  char tempBlockKey;
 
 @property (nonatomic,copy)photoBlock photoBlock;
 @property (nonatomic,copy)photoBlock tempPhotoBlock;
+
 @end
 
 @implementation UIViewController (XHPhoto)
@@ -70,8 +74,8 @@ static  char tempBlockKey;
     imagePickerController.delegate = self;
     imagePickerController.allowsEditing = canEdit;
     imagePickerController.sourceType =UIImagePickerControllerSourceTypePhotoLibrary;
+ 
     [self presentViewController:imagePickerController animated:YES completion:NULL];
-    
 }
 -(void)showCameraCanEdit:(BOOL)edit photo:(photoBlock)block
 {
@@ -121,11 +125,19 @@ static  char tempBlockKey;
     return YES;
 }
 #pragma mark - action sheet delegte
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(XH_IS_IPHONE) [self handelClickWithActionSheet:actionSheet buttonIndex:buttonIndex];
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(XH_IS_PAD) [self handelClickWithActionSheet:actionSheet buttonIndex:buttonIndex];
+}
+#pragma mark - Action
+-(void)handelClickWithActionSheet:(UIActionSheet *)actionSheet buttonIndex:(NSInteger)buttonIndex
 {
     if (actionSheet.tag==2599)
     {
-       
         switch (buttonIndex)
         {
             case 0://相机
